@@ -70,3 +70,24 @@ class H_Virus(object):
         if self.h_type==0:
              h_virus=pygame.image.load('hunta_virus.png')
              self.speed=10
+             window.blit(h_virus,(self.x,self.y))
+        self.hitbox=(self.x,self.y,100,100)
+
+class Bombs(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.speed = 10
+        self.hitbox = (self.x, self.y, 100, 100)
+    def draw(self, window):
+        window.blit(bomb_img, (self.x, self.y))
+        self.hitbox = (self.x, self.y, 100, 100)
+
+def texts(text,font):
+     textSurface=font.render(text,True,black)
+     return textSurface,textSurface.get_rect()
+
+def message(msg,x,y,size):
+     regText = pygame.font.Font("C:/WINDOWS/Fonts/TAHOMABD.ttf",size)
+     textSurf,textRect=texts(msg,regText)
+     textRect.center=(x,y)
