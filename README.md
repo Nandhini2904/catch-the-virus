@@ -37,3 +37,36 @@ pygame.mixer.music.load('music.wav')
 pygame.mixer.music.play(-1)
 
 clock=pygame.time.Clock() 
+class Syringe(object):
+     def __init__(self,x,y):
+        self.x=x
+        self.y=y
+        self.speed=10
+        self.hitbox=(self.x,self.y+20,150,80)
+     def draw(self,window):
+        window.blit(syringe_img,(self.x,self.y))
+        self.hitbox=(self.x,self.y+20,150,80)
+
+class C_Virus(object):
+     def __init__(self,x,y,c_type):
+        self.x=x
+        self.y=y
+        self.c_type=c_type
+        self.hitbox=(self.x,self.y,100,100)
+     def draw(self,window):
+        if self.c_type==0:
+           c_virus=pygame.image.load('corona_virus.png')
+           self.speed=10
+        window.blit(c_virus,(self.x,self.y))
+        self.hitbox=(self.x,self.y,100,100)
+
+class H_Virus(object):
+     def __init__(self,x,y,h_type):
+        self.x=x
+        self.y=y
+        self.h_type=h_type
+        self.hitbox=(self.x,self.y,100,100)
+     def draw(self,window):
+        if self.h_type==0:
+             h_virus=pygame.image.load('hunta_virus.png')
+             self.speed=10
